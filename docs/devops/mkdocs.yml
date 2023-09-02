@@ -1,0 +1,38 @@
+site_name: Bryan Kroger DevOps Blog
+
+theme:
+  name: material
+  icon:
+    logo: material/image-filter-hdr
+  # try to imitate woven-planet.global colors
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: grey
+      accent: red
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: grey
+      accent: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.png
+  features:
+    - navigation.tabs
+    #- navigation.tabs.sticky
+    - navigation.top
+    - navigation.instant
+    - navigation.expand
+  custom_dir: overrides
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - attr_list

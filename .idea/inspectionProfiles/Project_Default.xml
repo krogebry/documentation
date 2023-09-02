@@ -1,0 +1,38 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyInterpreterInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="15">
+            <item index="0" class="java.lang.String" itemvalue="kubernetes" />
+            <item index="1" class="java.lang.String" itemvalue="colorama" />
+            <item index="2" class="java.lang.String" itemvalue="openshift" />
+            <item index="3" class="java.lang.String" itemvalue="pre-commit" />
+            <item index="4" class="java.lang.String" itemvalue="ansible" />
+            <item index="5" class="java.lang.String" itemvalue="pyhelm" />
+            <item index="6" class="java.lang.String" itemvalue="Flask-Data-Service-Authn" />
+            <item index="7" class="java.lang.String" itemvalue="confluence-rest-library" />
+            <item index="8" class="java.lang.String" itemvalue="deepmerge" />
+            <item index="9" class="java.lang.String" itemvalue="diagrams" />
+            <item index="10" class="java.lang.String" itemvalue="redis" />
+            <item index="11" class="java.lang.String" itemvalue="rq" />
+            <item index="12" class="java.lang.String" itemvalue="boto3" />
+            <item index="13" class="java.lang.String" itemvalue="botocore" />
+            <item index="14" class="java.lang.String" itemvalue="awscli" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStubPackagesAdvertiser" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="boto3-stubs==1.15.14.0" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="YAMLSchemaValidation" enabled="false" level="WARNING" enabled_by_default="false" />
+  </profile>
+</component>
