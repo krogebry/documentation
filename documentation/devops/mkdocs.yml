@@ -1,4 +1,4 @@
-site_name: Bryan Kroger DevOps Blog
+site_name: Bryan Kroger DevOps Documentation
 
 theme:
   name: material
@@ -26,7 +26,6 @@ theme:
   favicon: assets/images/favicon.png
   features:
     - navigation.tabs
-    #- navigation.tabs.sticky
     - navigation.top
     - navigation.instant
     - navigation.expand
@@ -36,3 +35,11 @@ markdown_extensions:
   - admonition
   - pymdownx.superfences
   - attr_list
+
+nav:
+  - Home: index.md
+  - 'Tips and Tricks':
+      Home: tips-and-tricks/index.md
+      Kubernetes: tips-and-tricks/k8s.md
+
+
