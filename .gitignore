@@ -3,4 +3,4 @@ packer/output-virtualbox-iso*
 .idea
 .DS_Store
 
-tmp/*
+temp/*
