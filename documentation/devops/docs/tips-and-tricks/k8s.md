@@ -1,12 +1,17 @@
 # Overview
 
-Overview stuff
+Various things that have helped me manage k8s environments.
+
+!!! Warning
+
+    Please use [kubie](https://github.com/sbstp/kubie)!!
+
 
 ## Bash shortcuts
 
 Thanks to *Stefan Gloutnikov* for this little gem:
 
-```shell
+```shell 
 # Impersonate -admin in Kubie namespace
 kubieKubectlAsAdmin() {
   KUBENS=$(cat $KUBIE_KUBECONFIG | yq '.contexts[0].context.namespace')

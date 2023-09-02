@@ -33,13 +33,38 @@ theme:
 
 markdown_extensions:
   - admonition
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list
+  - md_in_html
 
 nav:
   - Home: index.md
+  - Helm:
+      Home: helm/index.md
+      Testing: helm/testing.md
+      Libararies: helm/libraries.md
+  - Kubernetes:
+      Home: kubernetes/index.md
+      Colima: kubernetes/colima.md
+      K3s: kubernetes/k3s.md
+      k9s: kubernetes/k9s.md
+      Kubie: kubernetes/kubie.md
+      Opa: kubernetes/opa.md
+      'AWS EKS': kubernetes/aws-eks.md
+  - Terraform:
+      Home: terraform/index.md
+      Vault: terraform/vault.md
+  - Github:
+      Home: github/index.md
+  - AWS:
+      Home: aws/index.md
   - 'Tips and Tricks':
       Home: tips-and-tricks/index.md
+      Helm: tips-and-tricks/helm.md
       Kubernetes: tips-and-tricks/k8s.md
 
 
