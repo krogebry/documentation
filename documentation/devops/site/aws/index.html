@@ -12,7 +12,7 @@
         <link rel="prev" href="../github/">
       
       
-        <link rel="next" href="../tips-and-tricks/">
+        <link rel="next" href="ssm/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -878,6 +878,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -888,6 +899,100 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ecr-login" class="md-nav__link">
+    ECR Login
+  </a>
+  
+    <nav class="md-nav" aria-label="ECR Login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alias" class="md-nav__link">
+    Alias
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-latest-ami" class="md-nav__link">
+    Find latest AMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-up-the-ebs-volumes-that-are-unattached" class="md-nav__link">
+    Add up the EBS volumes that are unattached.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-unattached-eips" class="md-nav__link">
+    Get unattached EIPs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-eips" class="md-nav__link">
+    Cleanup EIPs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-latest" class="md-nav__link">
+    Get latest
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSM
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1063,6 +1168,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ecr-login" class="md-nav__link">
+    ECR Login
+  </a>
+  
+    <nav class="md-nav" aria-label="ECR Login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alias" class="md-nav__link">
+    Alias
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-latest-ami" class="md-nav__link">
+    Find latest AMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-up-the-ebs-volumes-that-are-unattached" class="md-nav__link">
+    Add up the EBS volumes that are unattached.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-unattached-eips" class="md-nav__link">
+    Get unattached EIPs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-eips" class="md-nav__link">
+    Cleanup EIPs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-latest" class="md-nav__link">
+    Get latest
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1079,6 +1247,36 @@
 <h1 id="aws-specific-things">AWS specific things</h1>
 <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
 </code></pre></div>
+<h2 id="ecr-login">ECR Login</h2>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>ecr<span class="w"> </span>get-login-password<span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>--username<span class="w"> </span>AWS<span class="w"> </span>--password-stdin<span class="w"> </span>AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
+</code></pre></div>
+<h4 id="alias">Alias</h4>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">ecr_login</span><span class="o">=</span><span class="s2">&quot;aws ecr get-login-password | docker login --username AWS --password-stdin AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com&quot;</span>
+</code></pre></div>
+<h2 id="find-latest-ami">Find latest AMI</h2>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>ec2<span class="w"> </span>describe-images<span class="w"> </span>--owners<span class="w"> </span><span class="m">1234</span><span class="w"> </span>--filters<span class="w"> </span><span class="s2">&quot;Name=name,Values=ubuntu-20.04-20230208221620&quot;</span><span class="w">  </span>
+</code></pre></div>
+<h2 id="add-up-the-ebs-volumes-that-are-unattached">Add up the EBS volumes that are unattached.</h2>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>ec2<span class="w"> </span>describe-volumes<span class="w"> </span>--filters<span class="w"> </span><span class="s2">&quot;Name=status,Values=available&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;[.Volumes[].Size|tonumber]|add&#39;</span>
+</code></pre></div>
+<h2 id="get-unattached-eips">Get unattached EIPs</h2>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>ec2<span class="w"> </span>describe-addresses<span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;Addresses[?AssociationId==null]&#39;</span><span class="p">|</span>jq<span class="w"> </span><span class="s1">&#39;.[].AllocationId&#39;</span>
+</code></pre></div>
+<h2 id="cleanup-eips">Cleanup EIPs</h2>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>eip<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>describe-addresses<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Addresses[?AssociationId==null]&#39;</span><span class="p">|</span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[].AllocationId&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>aws<span class="w"> </span>ec2<span class="w"> </span>release-address<span class="w"> </span>--allocation-id<span class="w"> </span><span class="si">${</span><span class="nv">eip</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+<h2 id="get-latest">Get latest</h2>
+<p><a href="https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id.html">Reference</a></p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>get-parameter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span>us-east-1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s2">&quot;Parameter.Value&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>text<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>/aws/service/eks/optimized-ami/1.27/amazon-linux-2/recommended/image_id
+</code></pre></div>
+<p>Result: <code>ami-013895b64fa9cbcba</code></p>
 
 
 

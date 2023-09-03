@@ -69,6 +69,7 @@ nav:
       Home: github/index.md
   - AWS:
       Home: aws/index.md
+      SSM: aws/ssm.md
   - 'Tips and Tricks':
       Home: tips-and-tricks/index.md
       Helm: tips-and-tricks/helm.md

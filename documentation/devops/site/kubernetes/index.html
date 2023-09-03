@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -521,6 +526,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -531,6 +549,39 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#delete-old-jobs" class="md-nav__link">
+    Delete old jobs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exec-into-a-devops-utility-pod" class="md-nav__link">
+    Exec into a devops utility pod
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -886,6 +937,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/ssm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1053,6 +1124,30 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#delete-old-jobs" class="md-nav__link">
+    Delete old jobs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exec-into-a-devops-utility-pod" class="md-nav__link">
+    Exec into a devops utility pod
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1067,9 +1162,16 @@
                   
 
 
-  <h1>Home</h1>
-
-
+<h1 id="overview">Overview</h1>
+<p>Handy things to know about k8s.</p>
+<h2 id="delete-old-jobs">Delete old jobs</h2>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nb">jobs</span><span class="w"> </span>-A<span class="w"> </span>-o<span class="w"> </span>json<span class="p">|</span>jq<span class="w"> </span>-r<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;.items[]|select(.status.failed == 1)|\&quot;kubectl delete job -n \&quot; + .metadata.namespace + \&quot; \&quot; + .metadata.name &#39;</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h2 id="exec-into-a-devops-utility-pod">Exec into a devops utility pod</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">du</span><span class="o">=</span><span class="s2">&quot;kubectl exec -ti \$(kubectl get pods -lapp.kubernetes.io/instance=devops-utility-box -o json|jq -r &#39;.items[0].metadata.name&#39;) -- /bin/bash&quot;</span>
+</code></pre></div>
 
 
 
