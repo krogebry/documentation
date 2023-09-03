@@ -33,6 +33,12 @@ theme:
 
 markdown_extensions:
   - admonition
+  - def_list
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -58,6 +64,7 @@ nav:
   - Terraform:
       Home: terraform/index.md
       Vault: terraform/vault.md
+      Security: terraform/security.md
   - Github:
       Home: github/index.md
   - AWS:
@@ -66,5 +73,7 @@ nav:
       Home: tips-and-tricks/index.md
       Helm: tips-and-tricks/helm.md
       Kubernetes: tips-and-tricks/k8s.md
+      Aws: tips-and-tricks/aws.md
+      JQuery: tips-and-tricks/jq.md
 
 
